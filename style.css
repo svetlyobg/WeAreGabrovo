@@ -1,0 +1,612 @@
+/* Общ стил за всички страници на „Ние сме Габрово“.
+   Цветовете са взети от логото. Промяна тук важи за целия сайт. */
+
+:root {
+  color-scheme: light;
+
+  /* цветове от логото; еднакви в светла и тъмна тема */
+  --pine: #003b37;
+  --pine-hi: #00504d;
+  --on-pine: #f3f8f5;
+  --on-pine-soft: #a8cbc1;
+  --flag-white: #ffffff;
+  --flag-green: #00aa75;
+  --flag-red: #e40019;
+
+  /* страница */
+  --bg: #f3f6f4;
+  --surface: #ffffff;
+  --ink: #10231f;
+  --muted: #526b64;
+  --rule: #cddad4;
+  --link: #00755a;
+
+  --font-display: "Unbounded", "Arial Black", "Segoe UI", sans-serif;
+  --font-read: "Literata", Georgia, "Times New Roman", serif;
+  --font-ui: "Golos Text", "Segoe UI", system-ui, sans-serif;
+
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
+  --step-3: clamp(1.6rem, 1.2rem + 2vw, 2.5rem);
+  --step-4: clamp(2rem, 1.2rem + 4.2vw, 3.75rem);
+
+  --gutter: clamp(16px, 4vw, 40px);
+}
+
+/* тъмна тема: включва се сама, ако устройството на читателя е в тъмен режим */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #071c1a;
+    --surface: #0d2927;
+    --ink: #e6efeb;
+    --muted: #93aca4;
+    --rule: #21403c;
+    --link: #45d3a4;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+main { flex: 1; }
+img { max-width: 100%; }
+h1, h2, h3, p, ul, ol, figure, blockquote, pre { margin: 0; }
+ul, ol { padding: 0; }
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:focus-visible {
+  outline: 3px solid var(--flag-green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.wrap {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- горна лента с меню ---------- */
+.masthead {
+  background: var(--pine);
+  color: var(--on-pine);
+}
+.masthead .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.875rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--on-pine);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+/* малкият знак в менюто: изрязва само емблемата от logo/logoh2.jpg */
+.brand-mark {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--flag-white);
+}
+.brand-mark img {
+  position: absolute;
+  left: -41%;
+  top: -37.8%;
+  width: 336.1%;
+  max-width: none;
+  height: auto;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  list-style: none;
+}
+.nav a {
+  color: var(--on-pine-soft);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding-block: 0.25rem;
+  display: inline-block;
+}
+.nav a:hover { color: var(--on-pine); text-decoration: underline; }
+.nav a[aria-current] {
+  color: var(--on-pine);
+  text-decoration: underline;
+  text-decoration-color: var(--flag-green);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4em;
+}
+
+/* лентата в бяло, зелено и червено от логото */
+.ribbon {
+  height: 12px;
+  background: linear-gradient(
+    to bottom,
+    var(--flag-white) 0 33.4%,
+    var(--flag-green) 33.4% 66.7%,
+    var(--flag-red) 66.7% 100%
+  );
+}
+
+/* ---------- начална страница: голямата част с логото ---------- */
+.hero {
+  background: var(--pine);
+  color: var(--on-pine);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem clamp(1.5rem, 5vw, 4rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+.emblem {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  aspect-ratio: 1;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 86%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side, #000 86%, transparent 100%);
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.hero h1 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: var(--step--1);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--on-pine-soft);
+}
+.motto {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-4);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.motto em {
+  font-style: normal;
+  color: var(--flag-green);
+}
+.hero-lede {
+  font-family: var(--font-read);
+  font-size: var(--step-1);
+  line-height: 1.55;
+  max-width: 34ch;
+}
+.button {
+  display: inline-block;
+  background: var(--on-pine);
+  color: var(--pine);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+}
+.button:hover { background: var(--flag-white); }
+
+/* ---------- начална страница: секции под логото ---------- */
+.band .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: 1.5rem clamp(1.5rem, 5vw, 4rem);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+.band + .band .wrap { border-top: 1px solid var(--rule); }
+.band h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-2);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.band-body {
+  min-width: 0;
+  max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.band-body > .post-list { align-self: stretch; }
+.prose-lead {
+  font-family: var(--font-read);
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  line-height: 1.45;
+}
+.more {
+  font-weight: 600;
+  text-decoration: none;
+}
+.more:hover { text-decoration: underline; }
+
+/* ---------- вътрешни страници ---------- */
+.page .wrap {
+  max-width: 46rem;
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 7vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-3);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+/* банерът с хаштага на страницата „За движението“ */
+.banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+}
+
+/* места, които движението тепърва ще попълни */
+.todo {
+  align-self: stretch;
+  border: 1.5px dashed var(--muted);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.todo-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.todo ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.todo b { color: var(--ink); font-weight: 600; }
+
+/* ---------- списък със статии ---------- */
+.post-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.post-list li + li { border-top: 1px solid var(--rule); }
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 10.5rem) minmax(0, 1fr);
+  gap: 0.375rem 1.5rem;
+  padding-block: 1.25rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.post-list li:first-child .row { padding-top: 0; }
+.row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  font-size: var(--step--1);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--link);
+}
+.row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+.row-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+a.row:hover .row-title {
+  text-decoration: underline;
+  text-decoration-color: var(--flag-green);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+.row-excerpt {
+  font-family: var(--font-read);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---------- страница на статия ---------- */
+.back {
+  align-self: flex-start;
+  font-weight: 500;
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  font-size: var(--step--1);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.excerpt {
+  font-family: var(--font-read);
+  font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.375rem);
+  line-height: 1.45;
+  color: var(--muted);
+}
+.post-body {
+  font-family: var(--font-read);
+  font-size: var(--step-1);
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15em;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  min-width: 0;
+}
+.post-body h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  padding-top: 0.75em;
+}
+.post-body ul, .post-body ol {
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+.post-body li::marker { color: var(--link); font-family: var(--font-ui); font-weight: 600; }
+.post-body blockquote {
+  border-left: 3px solid var(--flag-green);
+  padding-left: 1.25rem;
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.4;
+}
+.post-body blockquote footer {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: var(--step--1);
+  color: var(--muted);
+  padding-top: 0.5rem;
+}
+.post-body figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.post-body figure img {
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+.post-body figcaption {
+  font-family: var(--font-ui);
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+.post-body code {
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+.post-body pre {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1rem 1.125rem;
+  overflow-x: auto;
+  max-width: 100%;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.post-body pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ---------- долна част ---------- */
+.foot {
+  background: var(--pine);
+  color: var(--on-pine);
+}
+.foot .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem 3rem;
+  padding-block: 2.5rem 1.75rem;
+}
+.foot-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.foot-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.foot-motto {
+  font-family: var(--font-read);
+  font-style: italic;
+  color: var(--on-pine-soft);
+}
+.foot-nav {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+.foot-nav a {
+  color: var(--on-pine);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+.foot-nav a:hover { text-decoration: underline; }
+.foot-line {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--on-pine-soft);
+  font-size: var(--step--1);
+  color: var(--on-pine-soft);
+}
+
+/* ---------- подменю „Приоритети“ ----------
+   Показва се при посочване с мишка. На телефон връзката води към priorities.html. */
+.has-sub { position: relative; }
+.subnav { display: none; list-style: none; }
+@media (hover: hover) and (min-width: 721px) {
+  .has-sub > a::after {
+    content: "▾";
+    display: inline-block;
+    margin-left: 0.3em;
+    font-size: 0.8em;
+  }
+  .has-sub:hover .subnav,
+  .has-sub:focus-within .subnav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: -1rem;
+    z-index: 10;
+    min-width: 15rem;
+    padding: 0.5rem 1rem 0.625rem;
+    background: var(--pine-hi);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+  .subnav a {
+    display: block;
+    color: var(--on-pine);
+    padding-block: 0.375rem;
+  }
+}
+
+/* ---------- списъци без дата (Приоритети) и новини ---------- */
+.row.plain { grid-template-columns: minmax(0, 1fr); }
+.news .row-excerpt { color: var(--ink); }
+
+/* ---------- форма за бюлетина ---------- */
+.subscribe {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.subscribe label { font-weight: 600; }
+.subscribe-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.subscribe input {
+  flex: 1 1 16rem;
+  min-width: 0;
+  font: inherit;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--muted);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.subscribe button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--link);
+  color: var(--bg);
+  cursor: pointer;
+}
+.subscribe input:focus-visible,
+.subscribe button:focus-visible {
+  outline: 3px solid var(--flag-green);
+  outline-offset: 3px;
+}
+.subscribe:disabled { opacity: 0.55; }
+.subscribe:disabled button { cursor: not-allowed; }
+
+/* ---------- телефони ---------- */
+@media (max-width: 720px) {
+  .hero .wrap,
+  .band .wrap { grid-template-columns: minmax(0, 1fr); }
+  .emblem { max-width: 15rem; margin-inline: auto; }
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .row-meta { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.875rem; }
+}

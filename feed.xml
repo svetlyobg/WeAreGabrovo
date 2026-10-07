@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- RSS на сайта. Адресът https://svetlyobg.github.io/WeAreGabrovo е предположение:
+     ако сайтът е на друг адрес, сменете го навсякъде в този файл.
+     За нова статия или новина копирайте един блок <item> и го сложете най-отгоре. -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Ние сме Габрово</title>
+  <link>https://svetlyobg.github.io/WeAreGabrovo/</link>
+  <description>Новини и статии на гражданско движение „Ние сме Габрово“.</description>
+  <language>bg</language>
+  <atom:link href="https://svetlyobg.github.io/WeAreGabrovo/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>Добре дошли в сайта на „Ние сме Габрово“</title>
+    <link>https://svetlyobg.github.io/WeAreGabrovo/article-welcome.html</link>
+    <guid>https://svetlyobg.github.io/WeAreGabrovo/article-welcome.html</guid>
+    <pubDate>Wed, 07 Oct 2026 09:00:00 +0300</pubDate>
+    <description>Първата публикация в сайта. Заменете я с ваш текст, когато сте готови.</description>
+  </item>
+
+  <item>
+    <title>Сайтът на движението е в подготовка</title>
+    <link>https://svetlyobg.github.io/WeAreGabrovo/news.html</link>
+    <guid isPermaLink="false">news-2026-10-07</guid>
+    <pubDate>Wed, 07 Oct 2026 08:00:00 +0300</pubDate>
+    <description>Това е примерна новина.</description>
+  </item>
+
+  <item>
+    <title>Как се добавя нова статия</title>
+    <link>https://svetlyobg.github.io/WeAreGabrovo/article-how-to-add.html</link>
+    <guid>https://svetlyobg.github.io/WeAreGabrovo/article-how-to-add.html</guid>
+    <pubDate>Tue, 06 Oct 2026 09:00:00 +0300</pubDate>
+    <description>Всяка статия е отделен файл. Нужни са копие на образеца и един нов ред в списъка.</description>
+  </item>
+
+  <item>
+    <title>Образец: как изглежда една статия</title>
+    <link>https://svetlyobg.github.io/WeAreGabrovo/article-template.html</link>
+    <guid>https://svetlyobg.github.io/WeAreGabrovo/article-template.html</guid>
+    <pubDate>Mon, 05 Oct 2026 09:00:00 +0300</pubDate>
+    <description>Показва подзаглавията, списъците, цитатите и снимките, които може да използвате в текста.</description>
+  </item>
+</channel>
+</rss>

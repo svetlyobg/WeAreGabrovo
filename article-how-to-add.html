@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как се добавя нова статия · Ние сме Габрово</title>
+<meta name="description" content="Всяка статия е отделен файл. Нужни са копие на образеца и един нов ред в списъка.">
+<link rel="icon" href="logo/logov2.jpg">
+<link rel="alternate" type="application/rss+xml" title="Ние сме Габрово" href="feed.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&amp;family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Golos+Text:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Горна лента с меню: еднаква във всички страници -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="logo/logoh2.jpg" alt="" width="148" height="77"></span>
+      <span>Ние сме Габрово</span>
+    </a>
+    <nav aria-label="Основно меню">
+      <ul class="nav">
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="about-us.html">За движението</a></li>
+        <li class="has-sub">
+          <a href="priorities.html">Приоритети</a>
+          <ul class="subnav">
+            <li><a href="priorities-policies.html">Политики</a></li>
+            <li><a href="priorities-how-it-started.html">Как започна всичко</a></li>
+            <li><a href="priorities-vision.html">Визията за Габрово</a></li>
+          </ul>
+        </li>
+        <li><a href="news.html">Новини</a></li>
+        <li><a href="articles.html" aria-current="page">Статии</a></li>
+        <li><a href="newsletter.html">Бюлетин</a></li>
+        <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="ribbon"></div>
+
+<main>
+  <div class="page">
+    <div class="wrap">
+      <a class="back" href="articles.html">← Всички статии</a>
+
+      <article class="post">
+        <p class="post-meta">
+          <time datetime="2026-10-06">6 октомври 2026 г.</time>
+          <span class="tag">Упътване</span>
+        </p>
+        <h1 class="page-title">Как се добавя нова статия</h1>
+        <p class="excerpt">Всяка статия е отделен файл. Нужни са копие на образеца и един нов ред в списъка.</p>
+
+        <div class="post-body">
+          <p>Сайтът е папка с файлове. Всяка страница е отделен HTML файл, общият вид е във <code>style.css</code>, а логата са в папката <code>logo</code>.</p>
+
+          <h2>Нова статия в четири стъпки</h2>
+          <ol>
+            <li>Копирайте файла <code>article-template.html</code> и дайте на копието ново име, например <code>article-my-topic.html</code>. Името е на латиница и без интервали.</li>
+            <li>Отворете новия файл в текстов редактор. Сменете заглавието на две места, в <code>&lt;title&gt;</code> и в <code>&lt;h1&gt;</code>, после датата, резюмето и текста.</li>
+            <li>Отворете <code>articles.html</code>, копирайте един блок <code>&lt;li&gt;</code> от списъка и го сложете най-отгоре. Сменете в него връзката, датата, заглавието и резюмето.</li>
+            <li>Ако искате статията да се вижда и на началната страница, направете същото в <code>index.html</code>.</li>
+          </ol>
+
+          <h2>Ред в списъка</h2>
+          <p>Един ред в списъка със статии изглежда така:</p>
+          <pre><code>&lt;li&gt;
+  &lt;a class="row" href="article-my-topic.html"&gt;
+    &lt;span class="row-meta"&gt;
+      &lt;time datetime="2026-10-15"&gt;15 октомври 2026 г.&lt;/time&gt;
+      &lt;span class="tag"&gt;Позиция&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class="row-main"&gt;
+      &lt;span class="row-title"&gt;Заглавие на статията&lt;/span&gt;
+      &lt;span class="row-excerpt"&gt;Едно-две изречения за списъка.&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/a&gt;
+&lt;/li&gt;</code></pre>
+
+          <h2>Новини и RSS</h2>
+          <p>Кратка новина се добавя като нов блок <code>&lt;li&gt;</code> най-отгоре в <code>news.html</code>.</p>
+          <p>За да се появи нова статия или новина в RSS, копирайте един блок <code>&lt;item&gt;</code> във <code>feed.xml</code> и го сложете най-отгоре.</p>
+
+          <h2>Меню и общ вид</h2>
+          <p>Менюто и долната част се повтарят във всеки файл. Ако добавите нова страница в менюто, сменете го във всички файлове.</p>
+          <p>Цветовете и шрифтовете са във <code>style.css</code>. Промяна там важи за целия сайт.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+<!-- Долна част: еднаква във всички страници -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-brand">
+      <span class="foot-name">Ние сме Габрово</span>
+      <span class="foot-motto">Заедно можем всичко</span>
+    </div>
+    <ul class="foot-nav">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="about-us.html">За движението</a></li>
+      <li><a href="priorities.html">Приоритети</a></li>
+      <li><a href="news.html">Новини</a></li>
+      <li><a href="articles.html">Статии</a></li>
+      <li><a href="newsletter.html">Бюлетин</a></li>
+      <li><a href="contacts.html">Контакти</a></li>
+      <li><a href="feed.xml">RSS</a></li>
+    </ul>
+    <div class="foot-line">
+      <span>© 2026 Ние сме Габрово</span>
+      <span>Габрово, България</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
